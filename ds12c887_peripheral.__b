@@ -1,0 +1,17 @@
+TRANSFER
+"pr_write.obj",
+"pr_read.obj",
+"settime.obj",
+"gettime.obj",
+"islowpower.obj",
+"alarm_enable.obj",
+"alarm_disable.obj",
+"init.obj",
+"bcd.obj",
+"bcd2dec.obj",
+"sqw_output.obj",
+"sqw_output_noirq.obj",
+"SETTIME_EX.obj",
+"today.obj",
+"setalarm.obj" 
+TO "ds12c887_peripheral.LIB"

@@ -1,0 +1,44 @@
+C51 COMPILER V9.00   BCD                                                                   11/18/2020 23:21:51 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE BCD
+OBJECT MODULE PLACED IN bcd.OBJ
+COMPILER INVOKED BY: C:\Keil4\C51\BIN\C51.EXE bcd.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "ds12c887.h" 
+   2          //函数执行时间3.718ms
+   3          uint32_t bin2bcd(uint16_t bin)
+   4          {
+   5   1              uint32_t bcd = bin;
+   6   1              uint8_t shift_bits = 15;
+   7   1              if (bcd < 10)
+   8   1                      return bcd;
+   9   1               do{
+  10   2                      if ((bcd & ONES_MASK) > 0x40000)
+  11   2                              bcd += 0x30000;
+  12   2                      if ((bcd & TENS_MASK) > 0x400000)
+  13   2                              bcd += 0x300000;
+  14   2                      if ((bcd & HUNDREDS_MASK) > 0x4000000)
+  15   2                              bcd += 0x3000000;
+  16   2                      if((bcd & THOUSANDS_MASK) > 0x40000000)
+  17   2                              bcd += 0x30000000;
+  18   2                      bcd <<= 1;
+  19   2               } while (shift_bits--);
+  20   1              return (bcd >> 16);
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    247    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

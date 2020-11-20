@@ -1,0 +1,31 @@
+C51 COMPILER V9.00   ISLOWPOWER                                                            11/18/2020 23:21:50 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE ISLOWPOWER
+OBJECT MODULE PLACED IN islowpower.OBJ
+COMPILER INVOKED BY: C:\Keil4\C51\BIN\C51.EXE islowpower.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "ds12c887.h" 
+   2          
+   3          uint8_t DS12C887_Is_LowPower(void)
+   4          {
+   5   1        if (DS12C887_Peri_Read(CR_D) & 0x80 == 0)
+   6   1         return LOW_POWER;
+   7   1        return 0;
+   8   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      3    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

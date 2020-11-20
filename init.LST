@@ -1,0 +1,34 @@
+C51 COMPILER V9.00   INIT                                                                  11/18/2020 23:21:50 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE INIT
+OBJECT MODULE PLACED IN init.OBJ
+COMPILER INVOKED BY: C:\Keil4\C51\BIN\C51.EXE init.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "ds12c887.h" 
+   2          
+   3          void Init_DS12C887(void)
+   4          { 
+   5   1        unsigned char ctrl = 0;
+   6   1        Clr_Bit(ctrl,2);      //BCD格式
+   7   1        Set_Bit(ctrl,1);      //24小时制
+   8   1        Clr_Bit(ctrl,0); //取消夏令时制
+   9   1        DS12C887_Peri_Write(CR_B,ctrl);
+  10   1        DS12C887_Peri_Write(CR_A,OSCILLATOR_OPEN);//振荡器开启
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     18    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
